@@ -28,12 +28,21 @@ router.get('/users/:id', (req, res) => {
   .catch((error) => res.json({ message: error}))
 });
 
-// get user
+// update user
 router.put('/users/:id', (req, res) => {
   const { id } = req.params;
   const { name, age, email } = req.body;
   userSchema
   .updateOne({_id: id}, { $set: {name, age, email }})
+  .then((data) => res.json(data))
+  .catch((error) => res.json({ message: error}))
+});
+
+// delete user
+router.delete('/users/:id', (req, res) => {
+  const { id } = req.params;
+  userSchema
+  .remove({_id: id})
   .then((data) => res.json(data))
   .catch((error) => res.json({ message: error}))
 });

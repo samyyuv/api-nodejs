@@ -23,3 +23,6 @@ Content-Type: application/json
   "age": 39,
   "email": "bspears@email.com"
 }
+
+###
+DELETE http://localhost:9000/api/users/6331b2d07ad55fed5095deee HTTP/1.1
